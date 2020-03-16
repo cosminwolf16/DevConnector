@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://cosmin:cosmin@devconnector-jqojw.mongodb.net/test?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://cosmin:cosmin@devconnector-jqojw.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken"
 }
