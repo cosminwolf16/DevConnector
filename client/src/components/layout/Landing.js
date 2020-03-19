@@ -20,7 +20,6 @@ const Landing = () => {
             </Link>
           </div>
         </div>
-        Name
       </div>
     </section>
   );
