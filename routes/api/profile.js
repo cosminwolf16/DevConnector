@@ -163,9 +163,9 @@ router.delete("/", auth, async (req, res) => {
   }
 });
 
-// @route  PUT api/profile/experience
-// @desc   Add profile experience
-// @access Private
+// @route    PUT api/profile/experience
+// @desc     Add profile experience
+// @access   Private
 router.put(
   "/experience",
   [
@@ -177,15 +177,16 @@ router.put(
       check("company", "Company is required")
         .not()
         .isEmpty(),
-      check("from", "From date is required")
+      check("from", "From date is required and needs to be from the past")
         .not()
         .isEmpty()
+        .custom((value, { req }) => (req.body.to ? value < req.body.to : true))
     ]
   ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array });
+      return res.status(400).json({ errors: errors.array() });
     }
 
     const {
@@ -216,8 +217,8 @@ router.put(
       await profile.save();
 
       res.json(profile);
-    } catch (error) {
-      console.error(error.message);
+    } catch (err) {
+      console.error(err.message);
       res.status(500).send("Server Error");
     }
   }
