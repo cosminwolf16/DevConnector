@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://cosmin:cosmin@devconnector-jqojw.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "d7ece61c52f3fc126e5f",
+    "githubSecret": "b3f5dbf59b4ddf494dd9ca38f057bc7b3b99d298"
+}
