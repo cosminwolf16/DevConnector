@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from "react";
+import { SET_LOADING } from "./actions/types";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
@@ -17,6 +18,10 @@ const App = () => {
     if (localStorage.token) {
       setAuthToken(localStorage.token);
       store.dispatch(loadUser());
+    } else {
+      store.dispatch({
+        type: SET_LOADING
+      });
     }
   }, []);
 

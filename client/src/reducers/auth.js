@@ -1,4 +1,5 @@
 import {
+  SET_LOADING,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   USER_LOADED,
@@ -46,6 +47,11 @@ export default function(state = initialState, action) {
         ...state,
         token: null,
         isAuthenticated: false,
+        loading: false
+      };
+    case SET_LOADING:
+      return {
+        ...state,
         loading: false
       };
     default:
